@@ -13,15 +13,12 @@ public class Main {
         //Set up use of random class
         Random rand = new Random();
 
-        //Prompt user to pick a card
-        System.out.println("Type p to pick a card. Type q to quit.");
-
         //Store user's input in this strings
         String input;
 
        do {
             //If the user's input equals lower or upper case P, then move into main program loop...
-            System.out.println("Type p to pick a card. Type q to quit.");
+            System.out.println("\nType p to pick a card. Type q to quit.");
 
             //ACTUALLY store the user's input
             input = scanner.nextLine();
