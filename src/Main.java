@@ -17,7 +17,7 @@ public class Main {
         System.out.println("Type p to pick a card.");
 
         //Store user's input
-        String input = String.valueOf(scanner);
+        String input = scanner.nextLine();
 
         //If the user's input equals lower or upper case P, then move into main program loop...
         if (input.equals("p") || input.equals("P")) {
@@ -28,29 +28,35 @@ public class Main {
             //Add a 1 to the bound so that the bound is between 1 and 13.
             bound += 1;
 
-            //If you pull an ace, do 35 push-ups.
-            if (bound == 1) {
-                System.out.println("You just got an Ace. Do 35 push-ups.");
+            switch(bound) {
+
+                //If the random number generator generates a 1, you pulled an ace.
+                case 1:
+                    System.out.println("You pulled an Ace. Do 35 push-ups.");
+                    break;
+
+                //If the random number generator generates an 11, you pulled a jack.
+                case 11:
+                    System.out.println("You pulled a Jack. Do 55 push-ups.");
+                    break;
+
+                //If the random number generator generates a 12, you pulled a queen.
+                case 12:
+                    System.out.println("You pulled a Queen. Do 20 push-ups.");
+                    break;
+
+                //If the random number generator generates a 13, you pulled a king.
+                case 13:
+                    System.out.println("You pulled a king. Do 20 push-ups.");
+                    break;
+
+                //If the random number generator generates anything from 2-10, you pulled a 2-10 numbered card.
+                default:
+                System.out.println("You pulled a " + bound + ". Do " + bound + " push-ups.");
+                break;
             }
 
-            //If you pull an ace, do 55 push-ups.
-            else if (bound == 11) {
-                System.out.println("You just got a Jack. Do 55 push-ups.");
             }
-
-            //If you pull an ace, do 20 push-ups.
-            else if (bound == 12) {
-                System.out.println("You just got a Queen. Do 20 push-ups.");
-            }
-
-            //If you pull an ace, do 20 push-ups.
-            else if (bound == 13) {
-                System.out.println("You just got a King. Do 20 push-ups.");
-            }
-
-            else if (bound == 2){
-            }
-        }
 
         //Else, end it right there.
         else {
