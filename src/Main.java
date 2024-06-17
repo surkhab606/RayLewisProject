@@ -13,21 +13,24 @@ public class Main {
         //Set up use of random class
         Random rand = new Random();
 
-        //Set up boolean to determine if player wants to continue picking cards
-        boolean continuePicking = true;
-
         //Prompt user to pick a card
         System.out.println("Type p to pick a card. Type q to quit.");
 
-        //Store user's input
-        String input = scanner.nextLine();
+        //Store user's input in this strings
+        String input;
 
-        while(continuePicking) {
+       do {
             //If the user's input equals lower or upper case P, then move into main program loop...
-            if (input.equals("p") || input.equals("P")) {
+            System.out.println("Type p to pick a card. Type q to quit.");
 
-                //Obtain a number between 0 and 12
-                int bound = rand.nextInt(13);
+            //ACTUALLY store the user's input
+            input = scanner.nextLine();
+
+            //Check if user wants to continue
+           if (input.equalsIgnoreCase("p"))  {
+               //Obtain a number between 0 and 12
+               int bound = rand.nextInt(13);
+
 
                 //Add a 1 to the bound so that the bound is between 1 and 13.
                 bound += 1;
@@ -63,7 +66,6 @@ public class Main {
             }
             //If the player picks q, quit
             else if (input.equals("q") || input.equals("Q")) {
-                continuePicking = false;
                 System.out.println("Hope you aren't quitting without doing any push-ups.");
             }
 
@@ -71,7 +73,7 @@ public class Main {
             else {
                 System.out.println("Maybe do some push-ups next time, fatty.");
             }
-        }
+        } while (!input.equalsIgnoreCase("q"));
 
         //Scanner close
         scanner.close();
